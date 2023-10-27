@@ -11,7 +11,7 @@
 
 ### Inference
 
-'''
+```
 from awq import AutoAWQForCausalLM
 from transformers import AutoTokenizer
 
@@ -20,5 +20,4 @@ tokenizer = AutoTokenizer.from_pretrained('/home/ouwei/baai/baai-awq/',trust_rem
 prompt ='''### Human : 写一个杭州旅游攻略 \n ### Assistant:'''
 input = tokenizer(prompt,return_tensor='pt')
 print(model.generate(**input))
-
-'''
+```
