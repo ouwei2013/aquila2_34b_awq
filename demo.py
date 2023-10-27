@@ -26,7 +26,6 @@ import torch
 
 
 model_id = "your/awq/file/path"
-# peft_model_id ='/datavolume/home/gupo/~/llm/rabbit_2'
 torch_device = "cuda" if torch.cuda.is_available() else "cpu"
 print("Running on device:", torch_device)
 print("CPU threads:", torch.get_num_threads())
