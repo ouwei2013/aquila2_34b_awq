@@ -19,6 +19,7 @@ from awq import AutoAWQForCausalLM
 from transformers import AutoTokenizer
 awq_model_path = '/my/awq/file/path/'
 model = AutoAWQForCausalLM.from_quantized(awq_model_path,trust_remote_code=True,fuse_layers=True)
+model.model.config.use_cache = True 
 tokenizer = AutoTokenizer.from_pretrained(awq_model_path,trust_remote_code=True)
 prompt ='''### Human : 写一个杭州旅游攻略 \n ### Assistant:'''
 input = tokenizer(prompt,return_tensor='pt')
