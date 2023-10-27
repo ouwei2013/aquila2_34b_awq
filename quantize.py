@@ -23,7 +23,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("-m", "--model_path", help="model file path")
     parser.add_argument("-o", "--output_path", help="output path")
-    parser.add_argument("-d", "--data_path", help="calibrate data file path")
+    parser.add_argument("-d", "--data_path",default='./data/calibrate_data.csv', help="calibrate data file path")
     args = parser.parse_args()
     model_path = args.model_path
     output_path = args.output_path
