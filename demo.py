@@ -2,27 +2,15 @@ from threading import Thread
 
 import torch
 import gradio as gr
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, TextIteratorStreamer,AutoModelForCausalLM
-from transformers.generation.utils import GenerationConfig
-from peft import PeftModel
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, TextIteratorStreamer
 from awq import AutoAWQForCausalLM
 
 from fastchat.model.model_adapter import get_conversation_template
 
-# from sentence_transformers import SentenceTransformer,util
 from transformers import AutoModel, AutoTokenizer
 import gradio as gr
-# import mdtex2html
-import pandas as pd
-import pickle
-import numpy as np
-import re
-import tqdm
 import torch
-# from sentence_transformers import CrossEncoder,SentenceTransformer, util
-# import numpy as np 
 
-#from peft import PeftModel
 
 
 model_id = "your/awq/file/path"
@@ -64,10 +52,6 @@ def run_generation(text,chatbot,history,top_p, temperature, top_k, max_new_token
 
     chatbot.append((text,""))
     user_text = get_prompt(text, history)
-    print('-------------------------------')
-    print(history)
-
-
     model_inputs = tokenizer([user_text], return_tensors="pt").to(torch_device)
 
     # Start generation on a separate thread, so that we don't block the UI. The text is pulled from the streamer
